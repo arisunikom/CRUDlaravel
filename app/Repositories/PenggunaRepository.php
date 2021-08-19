@@ -25,8 +25,10 @@ class PenggunaRepository
     }
 
     public function updatePengguna($id){
-        $query = Pengguna::where('id', $id)->firstOrFail();
-        return $query->update(request()->only(['name']));
+        $query = Pengguna::where('id', $id)
+        ->firstOrFail()
+        ->update(request()->only(['name']));
+        return $query;
     }
 
     public function deletePengguna($id){
